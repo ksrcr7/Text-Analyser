@@ -1,0 +1,47 @@
+
+
+#ifndef TEXT_ANALYSER_TEXTANALYSER_H
+#define TEXT_ANALYSER_TEXTANALYSER_H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif //TEXT_ANALYSER_TEXTANALYSER_H
