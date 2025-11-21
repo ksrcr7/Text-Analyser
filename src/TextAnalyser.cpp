@@ -2,13 +2,16 @@
 #include <algorithm>
 #include <stdexcept>
 #include <fstream>
+#include <cctype>
 
 
 
 static bool path_validation(const std::string& st){
     if(st.empty())return false;
-    return std::all_of(st.begin(),st.end(),
-                   [](unsigned char ch){return std::isspace(ch);});
+    if(std::all_of(st.begin(),st.end(),
+                   [](unsigned char ch){return std::isspace(ch);}))
+        return false;
+    return true;
 
 }
 
