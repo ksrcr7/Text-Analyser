@@ -71,7 +71,10 @@ std::size_t TextAnalyser::lineCount() const{
     if(Text.empty())return 0;
 
     std::size_t newlines = std::count(Text.begin(),Text.end(),'\n');
-    return newlines + 1;
+    if(Text.back() == '\n')
+        return newlines;
+    else
+        return newlines + 1;
 
 
 }
