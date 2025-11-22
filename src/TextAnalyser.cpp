@@ -99,4 +99,37 @@ std::size_t TextAnalyser::wordCount() const {
 
 }
 
+std::size_t TextAnalyser::specificWordCount(const std::string &word) const {
+    if(word.empty() || is_space(word)){
+        throw std::invalid_argument("Please enter your considered word.");
+    }
+
+    if(Text.empty() || is_space(Text))return 0;
+
+    size_t count = 0;
+    std::string temp;
+
+    for(unsigned char ch : Text){
+        if(std::isspace(ch)){
+            if(temp == word){
+                if (!temp.empty() && temp.size() == word.size() && temp == word) {
+                    ++count;
+                }
+            }
+            temp.clear();
+
+        }
+        else{
+            temp += static_cast<char>(ch);
+        }
+
+
+    }
+    if (!temp.empty() && temp.size() == word.size() && temp == word) {
+        ++count;
+    }
+    return count;
+
+}
+
 

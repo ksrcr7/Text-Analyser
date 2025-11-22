@@ -22,6 +22,7 @@ public:
     [[nodiscard]] std::size_t charCount()const;
     [[nodiscard]] std::size_t lineCount()const;
     [[nodiscard]] std::size_t wordCount()const;
+    [[nodiscard]] std::size_t specificWordCount(const std::string&)const;
 
 
 
