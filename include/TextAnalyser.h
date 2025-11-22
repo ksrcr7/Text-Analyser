@@ -6,6 +6,7 @@
 #include <string>
 #include <fstream>
 #include <unordered_map>
+#include <vector>
 
 
 
@@ -26,6 +27,8 @@ public:
     [[nodiscard]] std::size_t specificWordCount(const std::string&)const;
     [[nodiscard]] bool contains(const std::string&)const;
     std::unordered_map<std::string , std::size_t> wordFrequencies();
+    std::vector<std::string> extractWords();
+
 
 
 

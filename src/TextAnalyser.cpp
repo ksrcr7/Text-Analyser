@@ -179,5 +179,26 @@ std::unordered_map<std::string, std::size_t> TextAnalyser::wordFrequencies() {
     return result;
 }
 
+std::vector<std::string> TextAnalyser::extractWords() {
+
+    std::vector<std::string> result;
+    if(Text.empty() || is_space(Text))return result;
+
+    std::string temp;
+    for(unsigned char ch : Text){
+        if(std::isspace(ch)){
+            if(!temp.empty()){
+                result.push_back(temp);
+                temp.clear();
+            }
+        }
+        else
+            temp += static_cast<char>(ch);
+    }
+    if(!temp.empty())result.push_back(temp);
+    return result;
+
+}
+
 
 
