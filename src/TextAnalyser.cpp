@@ -198,6 +198,7 @@ std::vector<std::string> TextAnalyser::extractWords() {
     if(!temp.empty())result.push_back(temp);
     return result;
 
+
 }
 
 
