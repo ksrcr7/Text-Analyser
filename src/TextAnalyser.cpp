@@ -114,13 +114,10 @@ std::size_t TextAnalyser::specificWordCount(const std::string &word) const {
 
     for(unsigned char ch : Text){
         if(std::isspace(ch)){
-            if(temp == word){
-                if (!temp.empty() && temp.size() == word.size() && temp == word) {
-                    ++count;
-                }
+            if (!temp.empty() && temp.size() == word.size() && temp == word) {
+                ++count;
             }
             temp.clear();
-
         }
         else{
             temp += static_cast<char>(ch);
@@ -132,6 +129,32 @@ std::size_t TextAnalyser::specificWordCount(const std::string &word) const {
         ++count;
     }
     return count;
+
+}
+
+bool TextAnalyser::contains(const std::string &word) const {
+    if(word.empty() || is_space(word)){
+        throw std::invalid_argument("Please enter considered word.");
+    }
+    if(Text.empty() || is_space(Text))return false;
+
+    std::string temp;
+    for(unsigned char ch: Text){
+        if(std::isspace(ch)){
+            if(!temp.empty() && temp == word){
+                return true;
+            }
+            temp.clear();
+        }
+        else{
+            temp += static_cast<char>(ch);
+        }
+    }
+    if (!temp.empty() && temp == word) {
+        return true;
+    }
+    return false;
+
 
 }
 

@@ -23,6 +23,7 @@ public:
     [[nodiscard]] std::size_t lineCount()const;
     [[nodiscard]] std::size_t wordCount()const;
     [[nodiscard]] std::size_t specificWordCount(const std::string&)const;
+    bool contains(const std::string&)const;
 
 
 
