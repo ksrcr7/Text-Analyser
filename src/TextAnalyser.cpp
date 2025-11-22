@@ -158,5 +158,26 @@ bool TextAnalyser::contains(const std::string &word) const {
 
 }
 
+std::unordered_map<std::string, std::size_t> TextAnalyser::wordFrequencies() {
+
+    std::unordered_map<std::string , std::size_t> result;
+    if(Text.empty() || is_space(Text))return result;
+    std::string word;
+
+    for(unsigned char ch : Text){
+        if(std::isspace(ch)){
+            if(!word.empty()){
+                ++result[word];
+                word.clear();
+            }
+        }
+        else{
+            word += static_cast<char>(ch);
+        }
+    }
+    if(!word.empty())++result[word];
+    return result;
+}
+
 
 
