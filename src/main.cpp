@@ -1,6 +1,7 @@
-#include <iostream>
+#include "CLI.h"
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+int main(int argc,char** argv) {
+
+    return CLI::run(argc,argv);
+
 }
