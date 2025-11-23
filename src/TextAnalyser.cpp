@@ -158,7 +158,7 @@ bool TextAnalyser::contains(const std::string &word) const {
 
 }
 
-std::unordered_map<std::string, std::size_t> TextAnalyser::wordFrequencies() {
+std::unordered_map<std::string, std::size_t> TextAnalyser::wordFrequencies() const {
 
     std::unordered_map<std::string , std::size_t> result;
     if(Text.empty() || is_space(Text))return result;
@@ -199,6 +199,22 @@ std::vector<std::string> TextAnalyser::extractWords() {
     return result;
 
 
+}
+
+TextAnalyser::Status TextAnalyser::stats() const {
+    Status temp;
+    if(Text.empty() || is_space(Text)){
+        temp.linecount = 0;
+        temp.wordcount = 0;
+        temp.uniquewords = 0;
+        return temp;
+    }
+    else{
+        temp.linecount = lineCount();
+        temp.wordcount = wordCount();
+        temp.uniquewords = wordFrequencies().size();
+        return temp;
+    }
 }
 
 

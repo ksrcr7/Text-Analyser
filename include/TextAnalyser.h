@@ -15,6 +15,11 @@
 class TextAnalyser{
 private:
     std::string storage_path,Text;
+    struct Status{
+        std::size_t linecount{};
+        std::size_t wordcount{};
+        std::size_t uniquewords{};
+    };
 
 
 public:
@@ -26,8 +31,10 @@ public:
     [[nodiscard]] std::size_t wordCount()const;
     [[nodiscard]] std::size_t specificWordCount(const std::string&)const;
     [[nodiscard]] bool contains(const std::string&)const;
-    std::unordered_map<std::string , std::size_t> wordFrequencies();
+    std::unordered_map<std::string , std::size_t> wordFrequencies()const;
     std::vector<std::string> extractWords();
+    [[nodiscard]] Status stats()const;
+
 
 
 
